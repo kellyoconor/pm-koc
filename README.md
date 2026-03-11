@@ -1,14 +1,24 @@
-# PM Operating System
+# Kelly's PM Operating System
 
-**A complete AI-powered product management skill system for Claude Code.**
+**This is how I'm learning agentic product management — by building it.**
 
 152 skills | 15 domains | 7 subagents | 6 automations | 36 commands
 
 ---
 
+## Why 152 Skills?
+
+I wanted to understand how AI agents can make PMs better at their job. Not in theory — by actually building the system, merging the best open-source PM skill repos, resolving overlaps, and wiring up subagents and automations.
+
+This repo is the result. It's part learning project, part working PM toolkit, part reference architecture for anyone curious about agentic PM workflows. The 152 skills aren't bloat — they're coverage across the full PM lifecycle, merged from 6 different repos and consolidated into best-of-breed versions.
+
+If you're a PM exploring how AI agents fit into your workflow, clone this and experiment. If you're building your own skill system, steal whatever's useful.
+
+---
+
 ## Start Here
 
-Most PMs reach for this system in one of five moments. Pick yours:
+Pick your moment:
 
 | I need to...                        | Run this            |
 |-------------------------------------|---------------------|
@@ -35,7 +45,7 @@ Every command accepts a plain-English argument. For example:
 **Step 1.** Clone this repository into your working directory.
 
 ```bash
-git clone https://github.com/your-org/pm-koc.git
+git clone https://github.com/kellyoconor/pm-koc.git
 cd pm-koc
 ```
 
