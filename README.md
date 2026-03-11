@@ -8,11 +8,17 @@
 
 ## Why 152 Skills?
 
-I wanted to understand how AI agents can make PMs better at their job. Not in theory — by actually building the system, merging the best open-source PM skill repos, resolving overlaps, and wiring up subagents and automations.
+It started with one repo.
 
-This repo is the result. It's part learning project, part working PM toolkit, part reference architecture for anyone curious about agentic PM workflows. The 152 skills aren't bloat — they're coverage across the full PM lifecycle, merged from 6 different repos and consolidated into best-of-breed versions.
+I found [phuryn/pm-skills](https://github.com/phuryn/pm-skills) — 63 skills covering discovery, execution, and strategy. A solid baseline. I installed it, started using it, and immediately noticed what was missing: leadership skills, career development, sales enablement. The stuff that makes a PM effective beyond just shipping features.
 
-If you're a PM exploring how AI agents fit into your workflow, clone this and experiment. If you're building your own skill system, steal whatever's useful.
+So I went looking. [RefoundAI/lenny-skills](https://github.com/RefoundAI/lenny-skills) had 86 skills distilled from Lenny's Podcast — coaching PMs, managing up, navigating career transitions. I merged in the 46 that didn't overlap. Then [deanpeters/Product-Manager-Skills](https://github.com/deanpeters/Product-Manager-Skills) filled the finance and validation gaps I kept bumping into. 15 more unique skills.
+
+It kept going. Every few weeks I'd hit a moment — needing an ADR template, a scope-cutting framework, a Shape Up bet-sizing skill — and I'd find another repo that had exactly that. [product-on-purpose](https://github.com/product-on-purpose/pm-skills) for engineering-adjacent work. [alirezarezvani](https://github.com/alirezarezvani/claude-skills) for landing pages and SaaS scaffolding. [assimovt](https://github.com/assimovt/productskills) for Shape Up methodology.
+
+152 is where it landed. Is that too many? Probably. But now I have the most comprehensive PM skills library I've found, covering the full lifecycle from discovery through delivery, strategy through sales, career growth through org design. Each skill was a gap I actually hit, not a checkbox I was trying to fill.
+
+This repo is part learning project, part working PM toolkit, part reference architecture for anyone curious about agentic PM workflows. If you're a PM exploring how AI agents fit into your workflow, clone this and experiment. If you're building your own skill system, steal whatever's useful.
 
 ---
 
@@ -35,6 +41,74 @@ Every command accepts a plain-English argument. For example:
 /discover onboarding flow for enterprise customers
 /plan-launch v2 mobile app redesign
 ```
+
+---
+
+## How Many Skills Do I Actually Use?
+
+**152 skills isn't bloat -- it's coverage.** This system was built by a PM learning agentic product management by implementing every workflow across the full lifecycle. Most PMs will use 8 skills daily, reach for another 15-20 at planning cycles, and have 115+ available when the moment calls for it.
+
+Think of it like an IDE -- VS Code ships with thousands of features, but you use maybe 20 daily. The rest are there when you need them.
+
+### Tier 1: The Daily Driver (8 skills)
+
+The skills you'll run every week. These are the core PM workflow.
+
+| Skill | What it does | Command |
+|-------|-------------|---------|
+| `create-prd` | Write a PRD from problem to requirements | `/write-prd` |
+| `user-stories` | Break a PRD into sprint-sized backlog items | `/write-stories` |
+| `interview-script` | Prepare for customer interviews (Mom Test) | `/interview prep` |
+| `summarize-interview` | Extract insights from interview transcripts | `/interview summarize` |
+| `sprint-plan` | Plan a sprint with capacity and risks | `/sprint` |
+| `pre-mortem` | Stress-test a plan before launch | `/pre-mortem` |
+| `prioritize-features` | Decide what to build (and what not to) | `/triage-requests` |
+| `discover` | Full discovery cycle: ideate, assume, prioritize, test | `/discover` |
+
+**Start here.** If you only learn 8 skills, learn these.
+
+### Tier 2: The Planning Cycle (18 skills)
+
+Skills you reach for at monthly or quarterly planning. Strategy, competitive analysis, roadmapping, and GTM.
+
+| Cluster | Skills |
+|---------|--------|
+| **Strategy** | `product-strategy`, `product-vision`, `value-proposition`, `north-star-metric` |
+| **Competitive** | `competitor-analysis`, `competitive-battlecard`, `competitive-teardown` |
+| **Roadmapping** | `outcome-roadmap`, `brainstorm-okrs`, `prioritization-frameworks` |
+| **Go-to-Market** | `gtm-strategy`, `beachhead-segment`, `ideal-customer-profile`, `growth-loops` |
+| **Decomposition** | `epic-breakdown-advisor`, `user-story-mapping`, `opportunity-solution-tree` |
+| **Data** | `ab-test-analysis`, `cohort-analysis`, `metrics-dashboard` |
+
+### Tier 3: The Reference Library (126 skills)
+
+Everything else. Career development, leadership coaching, sales enablement, AI practice, engineering-adjacent skills, legal templates, and more. You don't think about these until the moment arrives -- then you're glad they're there.
+
+| Domain | Count | Examples |
+|--------|-------|---------|
+| Leadership | 17 | Coaching PMs, running 1:1s, org design, exec onboarding |
+| Engineering-Adjacent | 11 | ADRs, tech debt prioritization, design systems, spikes |
+| Marketing-Growth | 9 | Content strategy, community building, landing pages |
+| Market Research | 8 | Personas, journey maps, market sizing, segmentation |
+| AI Practice | 7 | AI strategy, LLM building, evals, vibe coding |
+| Career | 7 | Promotions, transitions, negotiation, imposter syndrome |
+| Sales | 6 | Enterprise, founder-led, PLG, compensation design |
+| Toolkit | 5 | NDAs, privacy policies, resume review, proofreading |
+| Data-Analytics | 4 | A/B tests, cohorts, SQL generation, instrumentation |
+| Finance | 3 | SaaS economics, feature ROI, pricing impact |
+| Soft Skills | 3 | Presentations, writing, brand storytelling |
+| + remaining Discovery/Execution | ~46 | Surveys, dogfooding, behavioral design, scope-cutting, release notes, edge cases, retros, story mapping, and more |
+
+### For Teams: Fork and Tailor
+
+The recommended adoption path:
+
+1. **Clone this repo** -- all 152 skills load automatically
+2. **Start with Tier 1** -- run `/write-prd` or `/discover` on a real problem
+3. **Fork for your team** -- tailor the 7 subagents to your product, customers, and competitive landscape
+4. **Tier 1 becomes your daily operating system.** Tier 2 kicks in at planning cycles. Tier 3 is there when you need it.
+
+Each team's fork becomes their **product intelligence layer** -- organizational IP that compounds as retros, feedback analysis, and competitive scans accumulate over time.
 
 ---
 
@@ -474,20 +548,20 @@ All 36 slash commands, grouped by workflow.
 
 ## Sources and Attribution
 
-This system was built by merging and curating skills from six open-source PM skill repositories:
+This library grew over time from six open-source PM skill repositories, each filling a gap I kept running into:
 
-| Source | Contribution |
-|--------|-------------|
-| [phuryn/pm-skills](https://github.com/phuryn/pm-skills) | Baseline system -- 63 skills, 36 commands, core architecture |
-| [RefoundAI/lenny-skills](https://github.com/RefoundAI/lenny-skills) | 46 unique skills -- leadership, career, sales domains |
-| [deanpeters/Product-Manager-Skills](https://github.com/deanpeters/Product-Manager-Skills) | 15 unique skills -- finance, validation, leadership transitions |
-| [product-on-purpose/pm-skills](https://github.com/product-on-purpose/pm-skills) | 8 unique skills -- engineering-adjacent, edge cases |
-| [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills) | 4 unique skills -- landing pages, SaaS scaffolding, teardowns |
-| [assimovt/productskills](https://github.com/assimovt/productskills) | 2 unique skills -- Shape Up bet-sizing, scope-cutting |
+| Source | When I found it | What it filled |
+|--------|----------------|---------------|
+| [phuryn/pm-skills](https://github.com/phuryn/pm-skills) | First | The foundation -- 63 skills, 36 commands, core architecture for discovery, execution, strategy |
+| [RefoundAI/lenny-skills](https://github.com/RefoundAI/lenny-skills) | Needed leadership depth | 46 unique skills -- coaching, career transitions, sales, managing up. The human side of PM. |
+| [deanpeters/Product-Manager-Skills](https://github.com/deanpeters/Product-Manager-Skills) | Needed finance + validation | 15 unique skills -- feature ROI, SaaS economics, leadership transitions, battle-tested methods |
+| [product-on-purpose/pm-skills](https://github.com/product-on-purpose/pm-skills) | Needed engineering-adjacent | 8 unique skills -- ADRs, spike summaries, solution briefs, edge case documentation |
+| [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills) | Needed builder tools | 4 unique skills -- landing page generation, SaaS scaffolding, competitive teardowns |
+| [assimovt/productskills](https://github.com/assimovt/productskills) | Needed Shape Up | 2 unique skills -- bet-sizing and scope-cutting using appetite-first methodology |
 
-Skills were deduplicated, resolved for overlaps, and organized into a unified domain structure. Original authors and frameworks are credited within individual skill files.
+Every skill was deduplicated, resolved for overlaps, and organized into a unified domain structure. Where multiple repos covered the same topic, I kept the best version or merged them. Original authors and frameworks are credited within individual skill files.
 
-Selected skills draw on the work of Teresa Torres, Marty Cagan, Alberto Savoia, Dan Olsen, Ash Maurya, Christina Wodtke, and others. Full attribution is preserved in each SKILL.md file.
+The skills themselves draw on the work of Teresa Torres, Marty Cagan, Alberto Savoia, Dan Olsen, Ash Maurya, Christina Wodtke, Rob Fitzpatrick, April Dunford, and others. Full attribution is preserved in each SKILL.md file.
 
 ---
 
