@@ -5,7 +5,7 @@ Kelly (koc) — Product Manager building a full AI-powered PM skill system.
 
 ## System Architecture
 
-### Skills (148 across 15 domains)
+### Skills (152 across 15 domains)
 Located in `.claude/skills/{domain}/{skill-name}/SKILL.md`
 
 | Domain | Count | What |

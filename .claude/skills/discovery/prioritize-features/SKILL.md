@@ -1,49 +1,115 @@
 ---
 name: prioritize-features
-description: "Prioritize a backlog of feature ideas based on impact, effort, risk, and strategic alignment with top 5 recommendations. Use when prioritizing a feature backlog, making scope decisions, or ranking product ideas."
+description: "Prioritize a backlog of feature ideas using RICE, ICE, or Opportunity Score with enabler/blocker classification and top-5 recommendations. Use when prioritizing a feature backlog, making scope decisions, ranking product ideas, or deciding what to build next."
 ---
+# Prioritize Feature Backlog
 
-## Prioritize Feature Backlog
+Evaluate and rank a backlog of feature ideas to identify the highest-impact items to pursue. Uses scoring frameworks combined with strategic judgment and blocker/enabler classification.
 
-Evaluate and rank a backlog of feature ideas to identify the top 5 to pursue.
+## When to Use
 
-### Context
+- Prioritizing a feature backlog for the next cycle or quarter
+- Making scope decisions under resource constraints
+- Ranking competing product ideas from stakeholders
+- Deciding between quick wins and strategic bets
+- Breaking ties between similarly valuable features
+- Triggers: prioritize, rank features, what to build next, backlog prioritization
+
+## Context
 
 You are helping prioritize features for **$ARGUMENTS**.
 
 If the user provides files (spreadsheets, backlogs, opportunity assessments), read and analyze them directly.
 
-### Domain Context
+## Instructions
 
-For framework selection guidance, see the `prioritization-frameworks` skill. Key recommendations:
+### 1. Understand Priorities
 
-**Opportunity Score** (Dan Olsen, *The Lean Product Playbook*) is recommended for evaluating customer problems: Opportunity Score = Importance × (1 − Satisfaction), normalized to 0–1. High Importance + low Satisfaction = best opportunities. Prioritize **problems (opportunities)**, not solutions.
+Confirm the product objective and success metrics. Ask:
+- What is the primary goal this cycle? (acquisition, retention, engagement, revenue, efficiency)
+- What does success look like? What metrics are you trying to move?
+- Are there strategic bets or constraints to account for?
 
-**ICE** is recommended for quick scoring of initiatives: Impact (Opportunity Score × # Customers) × Confidence × Ease. **RICE** adds Reach as a separate factor for larger teams.
+### 2. Select Scoring Framework
 
-### Instructions
+For framework details, see the `prioritization-frameworks` skill. Quick selection guide:
 
-The user will describe their product objective, desired outcomes, and provide feature ideas. Work through these steps:
+- **Minimal data, small team:** ICE (Impact x Confidence x Ease)
+- **Some analytics, scaling team:** RICE ((Reach x Impact x Confidence) / Effort)
+- **Customer survey data available:** Opportunity Score (Importance x (1 - Satisfaction))
 
-1. **Understand priorities**: Confirm the product objective and success metrics.
+### 3. Score Each Feature
 
-2. **Evaluate each feature** against:
-   - **Impact**: How much does it move the needle on desired outcomes? Consider Opportunity Score if customer data is available.
-   - **Effort**: How much development, design, and coordination is required?
-   - **Risk**: How much uncertainty exists? What assumptions need testing?
-   - **Strategic alignment**: How well does it fit the product vision and current goals?
+Evaluate each feature against:
+- **Impact**: How much does it move the needle on desired outcomes? Use Opportunity Score if customer data is available.
+- **Reach**: How many users/accounts are affected? Use real numbers from analytics.
+- **Confidence**: How sure are you? 100% = hard data. 80% = strong evidence. 50% = gut feel. Never 100% without quantitative data.
+- **Effort**: Person-weeks including design, engineering, QA, and cross-team coordination. Round up.
 
-3. **Recommend the top 5 features** with:
-   - Clear ranking (1-5)
-   - Brief rationale for each selection
-   - Key trade-offs considered
-   - What was deprioritized and why
+**Show the math.** A prioritization without visible scores is just an opinion list.
 
-4. **Present as a prioritization table** if helpful.
+### 4. Classify as Blocker or Enabler
+
+For each feature:
+- **Blocker:** Removes a barrier to adoption or retention. Users are churning, stuck, or can't start because this is missing. Examples: missing SSO for enterprise, broken mobile experience, no data export.
+- **Enabler:** Delights existing users or deepens engagement. Examples: keyboard shortcuts, advanced filters, integrations.
+
+**Rule: Prioritize blockers over enablers when growing.** Removing friction > adding delight. Flip when retention is strong but engagement is flat.
+
+If two items are within 20% score of each other, use the blocker/enabler lens to break ties, or pick the one with higher Confidence.
+
+### 5. Recommend Top Features
+
+Present:
+- Clear ranking with scores visible
+- Brief rationale for each selection
+- Key trade-offs considered
+- What was deprioritized and why
+- Any items that need more data before confident scoring
+
+### 6. Present as Prioritization Table
+
+| Rank | Feature | Reach | Impact | Confidence | Effort | Score | Type |
+|------|---------|-------|--------|------------|--------|-------|------|
+| 1 | [Feature A] | [n] | [1-3] | [%] | [weeks] | [score] | Blocker |
+| 2 | [Feature B] | [n] | [1-3] | [%] | [weeks] | [score] | Enabler |
+| ... | ... | ... | ... | ... | ... | ... | ... |
+
+**Deprioritized:**
+| Feature | Score | Reason |
+|---------|-------|--------|
+| [Feature X] | [score] | [Why it's not in top N] |
+
+## Common Pitfalls
+
+- **Prioritizing by loudest voice** -- Use visible scoring, not stakeholder pressure
+- **All incremental, no big bets** -- Check if your top items are all safe optimizations
+- **Overweighting effort** -- Don't avoid hard problems just because they score low
+- **Ignoring strategic context** -- Scores are input, not automation; adjust for vision
+- **Never reprioritizing** -- Re-score every cycle; the world changes
+- **Prioritizing more than one cycle** -- Don't rank 6 months of work. Score for the next cycle only.
+
+## Discovery Questions (When Context is Sparse)
+
+- "If you could only ship one thing this quarter, what would it be and why?"
+- "What's on your backlog that you secretly believe won't move the needle?"
+- "Which items are you most confident about? Least confident?"
+- "Are any of these blocking adoption or causing churn right now?"
+- "What would you do differently with 20% more resources? With 20% fewer?"
 
 Think step by step. Save as markdown if the output is substantial.
 
 ---
+
+### References
+
+**Frameworks:**
+- RICE (Intercom, 2016), ICE (Sean McBride, 2012), Opportunity Score (Dan Olsen)
+- Enablers vs Blockers (Linear Method)
+
+**Related Skills:**
+- `prioritization-frameworks` -- Detailed reference for all 9+ frameworks with formulas and templates
+- `outcome-roadmap` -- Prioritized features feed into the roadmap
 
 ### Further Reading
 
